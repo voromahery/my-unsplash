@@ -1,6 +1,5 @@
-import ImageCard from "../components/image/index";
-import Loader from "../components/loader";
+import Header from "../components/header";
 
 export default function Home() {
-  return <Loader/>
+  return <Header />;
 }

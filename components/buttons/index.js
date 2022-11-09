@@ -1,6 +1,6 @@
 import styles from "./Button.module.scss";
 
-const Button = ({ text, type, action }) => {
+const Button = ({ text, type, action = () => null }) => {
   return (
     <button
       className={`${styles.button} ${
