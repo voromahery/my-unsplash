@@ -1,0 +1,26 @@
+.loader {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  &::after {
+    content: " ";
+    display: block;
+    width: 30px;
+    height: 30px;
+    margin: auto;
+    border-radius: 50%;
+    border: 3px solid rgba(184, 184, 184, 0.84);
+    border-color: rgba(184, 184, 184, 0.84) transparent
+      rgba(184, 184, 184, 0.84) transparent;
+    animation: loader 1.2s linear infinite;
+  }
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
