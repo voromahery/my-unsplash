@@ -1,15 +1,18 @@
 .wrapper {
   position: relative;
   max-width: 384px;
+  height: fit-content;
   border-radius: 16px;
   overflow: hidden;
   cursor: pointer;
+  display: inline-block;
   &:hover .mask {
     display: flex;
   }
   .mask {
     display: none;
     position: absolute;
+    top: -2px;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.38);
@@ -31,6 +34,7 @@
       font-size: 18px;
       line-height: 22px;
       color: #ffffff;
+      margin: 0;
     }
   }
   .image {
