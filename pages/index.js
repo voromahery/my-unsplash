@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className={styles.main}>
       <div className={styles.imagesWrapper}>
-        <ResponsiveMasonry>
+        <ResponsiveMasonry columnsCountBreakPoints={{350: 1, 750: 2, 900: 3}}>
           <Masonry columnsCount={3} gutter={46.5}>
             <ImageCard />
             <ImageCard imgUrl="https://wallpaperaccess.com/full/41757.jpg" />
