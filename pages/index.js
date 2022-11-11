@@ -1,10 +1,12 @@
 import styles from "../styles/Home.module.scss";
 import ImageCard from "../components/image/index";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+import Header from '../components/header/index';
 
 export default function Home() {
   return (
     <div className={styles.main}>
+      <Header/>
       <div className={styles.imagesWrapper}>
         <ResponsiveMasonry columnsCountBreakPoints={{350: 1, 750: 2, 900: 3}}>
           <Masonry columnsCount={3} gutter={46.5}>
