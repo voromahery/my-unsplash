@@ -4,7 +4,11 @@ const Button = ({ text, type, action = () => null }) => {
   return (
     <button
       className={`${styles.button} ${
-        type === "default" ? styles.default : styles.delete
+        type === "default"
+          ? styles.default
+          : type === "cancel"
+          ? styles.cancel
+          : styles.delete
       }`}
       onClick={action}
     >

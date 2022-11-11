@@ -15,4 +15,10 @@
   &.delete {
     background-color: #eb5757;
   }
+
+  &.cancel {
+    color: #bdbdbd;
+    background-color: #ffffff;
+    box-shadow: none;
+  }
 }
