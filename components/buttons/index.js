@@ -1,6 +1,6 @@
 import styles from "./Button.module.scss";
 
-const Button = ({ text, type, action = () => null }) => {
+const Button = ({ label, type, action = () => null }) => {
   return (
     <button
       className={`${styles.button} ${
@@ -12,7 +12,7 @@ const Button = ({ text, type, action = () => null }) => {
       }`}
       onClick={action}
     >
-      {text}
+      {label}
     </button>
   );
 };

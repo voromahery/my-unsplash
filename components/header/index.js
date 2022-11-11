@@ -15,7 +15,7 @@ const Header = () => {
           placeholder="Search by name"
           className={styles.input}
         />
-        <Button text="Add a photo" type="default" />
+        <Button label="Add a photo" type="default" />
       </form>
     </header>
   );
