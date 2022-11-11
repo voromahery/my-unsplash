@@ -1,11 +1,10 @@
 .main {
-  position: relative;
   max-width: 1440px;
   margin: auto;
   padding: 0 99px;
   .imagesWrapper {
     margin: 0;
-    margin-top: 76px;
+    margin-top: calc(76px - 32px);
     padding-bottom: 30px;
   }
   .buttonWrapper {
