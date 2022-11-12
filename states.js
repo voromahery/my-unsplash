@@ -1,3 +1,4 @@
 export default {
-  displayModal: false,
+  displayAddModal: false,
+  displayDeleteModal: false,
 };

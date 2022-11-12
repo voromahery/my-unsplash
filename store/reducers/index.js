@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
-import displayModal from './displayModal';
+import displayAddModal from "./displayAddModal";
+import displayDeleteModal from "./displayDeleteModal";
 
-const rootReducer = combineReducers({ displayModal });
+const rootReducer = combineReducers({ displayAddModal, displayDeleteModal });
 
 export default rootReducer;
