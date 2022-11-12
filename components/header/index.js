@@ -1,7 +1,11 @@
 import styles from "./Header.module.scss";
 import Button from "../buttons/index";
+import { useDispatch } from "react-redux";
+import { displayModal } from "../../store/actions/index";
 
 const Header = () => {
+  const dispatch = useDispatch();
+
   return (
     <header className={styles.header}>
       <h1 className={styles.title}>
@@ -9,14 +13,18 @@ const Header = () => {
           My Unsplash
         </a>
       </h1>
-      <form className={styles.form}>
+      <div className={styles.form}>
         <input
           type="text"
           placeholder="Search by name"
           className={styles.input}
         />
-        <Button label="Add a photo" type="default" />
-      </form>
+        <Button
+          label="Add a photo"
+          type="default"
+          action={() => dispatch(displayModal(true))}
+        />
+      </div>
     </header>
   );
 };

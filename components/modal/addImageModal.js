@@ -2,8 +2,11 @@ import styles from "./Modal.module.scss";
 import ModalWrapper from "./modalWrapper";
 import Form from "../form/index";
 import Button from "../buttons/index";
+import { useDispatch } from "react-redux";
+import { displayModal } from "../../store/actions/index";
 
 const AddImageModal = () => {
+  const dispatch = useDispatch();
   return (
     <ModalWrapper
       title="Add a new photo"
@@ -16,7 +19,11 @@ const AddImageModal = () => {
           />
           <div className={styles.buttonWrapper}>
             <Button type="default" label="Submit" />
-            <Button type="cancel" label="Cancel" />
+            <Button
+              type="cancel"
+              label="Cancel"
+              action={() => dispatch(displayModal(false))}
+            />
           </div>
         </>
       }
