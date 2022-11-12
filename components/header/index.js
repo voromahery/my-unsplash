@@ -2,6 +2,7 @@ import styles from "./Header.module.scss";
 import Button from "../buttons/index";
 import { useDispatch } from "react-redux";
 import { displayModal } from "../../store/actions/index";
+import bodyScrollLock from "../../scrollUtils.js";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -22,7 +23,10 @@ const Header = () => {
         <Button
           label="Add a photo"
           type="default"
-          action={() => dispatch(displayModal(true))}
+          action={() => {
+            dispatch(displayModal(true));
+            bodyScrollLock.enable();
+          }}
         />
       </div>
     </header>

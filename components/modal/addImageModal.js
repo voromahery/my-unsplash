@@ -4,6 +4,7 @@ import Form from "../form/index";
 import Button from "../buttons/index";
 import { useDispatch } from "react-redux";
 import { displayModal } from "../../store/actions/index";
+import bodyScrollLock from "../../scrollUtils.js";
 
 const AddImageModal = () => {
   const dispatch = useDispatch();
@@ -22,7 +23,10 @@ const AddImageModal = () => {
             <Button
               type="cancel"
               label="Cancel"
-              action={() => dispatch(displayModal(false))}
+              action={() => {
+                dispatch(displayModal(false));
+                bodyScrollLock.disable();
+              }}
             />
           </div>
         </>
