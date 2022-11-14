@@ -5,6 +5,7 @@ const Form = ({
   action,
   label = "Test",
   placeholder = "test",
+  value,
 }) => {
   return (
     <label className={styles.label}>
@@ -14,6 +15,7 @@ const Form = ({
         onChange={action}
         placeholder={placeholder}
         className={styles.form}
+        value={value}
       />
     </label>
   );

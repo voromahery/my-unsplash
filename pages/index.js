@@ -12,7 +12,7 @@ export default function Home() {
   const dispatch = useDispatch();
   const isShownAddModal = useSelector((state) => state.displayAddModal);
   const isShownDeleteModal = useSelector((state) => state.displayDeleteModal);
-
+  const images = useSelector((state) => state.images);
   return (
     <div className={styles.main}>
       <Header />
@@ -27,13 +27,10 @@ export default function Home() {
                 bodyScrollLock.enable();
               }}
             />
-            <ImageCard imgUrl="https://wallpaperaccess.com/full/41757.jpg" />
-            <ImageCard imgUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5YTZTiJIB_gpn46_KP-SEftM7P5wGiRNkhKs6hkWn&s" />
-            <ImageCard imgUrl="https://images2.alphacoders.com/100/1008472.png" />
-            <ImageCard imgUrl="https://c4.wallpaperflare.com/wallpaper/617/713/266/tokyo-revengers-manga-hd-wallpaper-preview.jpg" />
-            <ImageCard imgUrl="https://www.enjpg.com/img/2020/chainsaw-man-29.jpg" />
-            <ImageCard imgUrl="https://i.pinimg.com/originals/da/ce/28/dace28adf1cc40de1fd125baf304e7e3.jpg" />
-            <ImageCard imgUrl="https://i.pinimg.com/originals/26/41/98/26419821867d7234bc0b8d61e4f71a42.png" />
+            {images.length > 0 &&
+              images.map((image, i) => (
+                <ImageCard key={i} imgUrl={image?.url} label={image?.label} />
+              ))}
           </Masonry>
         </ResponsiveMasonry>
       </div>

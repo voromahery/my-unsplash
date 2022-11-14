@@ -5,3 +5,7 @@ export const displayAddModal = () => {
 export const displayDeleteModal = () => {
   return { type: "TOGGLE_DELETE_MODAL" };
 };
+
+export const addNewImage = (image) => {
+  return { type: "ADD_IMAGE", image };
+};
