@@ -27,7 +27,7 @@ const AddImageModal = () => {
   return (
     <ModalWrapper
       title="Add a new photo"
-      children={
+      content={
         <>
           <Form
             placeholder="Add image name"
