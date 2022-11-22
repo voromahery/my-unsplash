@@ -1,12 +1,12 @@
 import { combineReducers } from "redux";
 import displayAddModal from "./displayAddModal";
 import displayDeleteModal from "./displayDeleteModal";
-import addNewImage from "./addNewImage";
+import images from "./images";
 
 const rootReducer = combineReducers({
   displayAddModal,
   displayDeleteModal,
-  images: addNewImage,
+  images,
 });
 
 export default rootReducer;

@@ -1,13 +1,27 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { connect, useSelector } from "react-redux";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import ImageCard from "../components/image/index.js";
 import bodyScrollLock from "../scrollUtils.js";
-import { displayDeleteModal } from "../store/actions/index.js";
+import { displayDeleteModal, getImages } from "../store/actions/index.js";
 import styles from "../styles/Home.module.scss";
 
-const ImagesList = () => {
+const mapStateToProps = (state) => {
+  return {
+    images: state.images,
+  };
+};
+
+const mapDispatchToProps = {
+  getImages,
+};
+
+const ImagesList = ({getImages}) => {
   const images = useSelector((state) => state.images);
+  useEffect(() => {
+    getImages();
+  }, []);
+
   return (
     <div className={styles.imagesWrapper}>
       <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
@@ -28,4 +42,4 @@ const ImagesList = () => {
   );
 };
 
-export default ImagesList;
+export default connect(mapStateToProps, mapDispatchToProps)(ImagesList);
