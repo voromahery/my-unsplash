@@ -11,7 +11,7 @@ const DeleteModal = () => {
   return (
     <ModalWrapper
       title="Are you sure?"
-      children={
+      content={
         <>
           <Form type="password" placeholder="******************" />
           <div className={styles.buttonWrapper}>
