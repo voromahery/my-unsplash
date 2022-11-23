@@ -4,21 +4,17 @@ import ModalWrapper from "./modalWrapper";
 import Form from "../form/index";
 import Button from "../buttons/index";
 import { useDispatch } from "react-redux";
-import { addNewImage, displayAddModal } from "../../store/actions/index";
+import { displayAddModal } from "../../store/actions/index";
 import bodyScrollLock from "../../scrollUtils.js";
+import { addNewImage } from "../../firebase";
 
 const AddImageModal = () => {
   const [imageLabel, setImageLabel] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const dispatch = useDispatch();
 
-  const addImage = (e) => {
-    dispatch(
-      addNewImage({
-        label: imageLabel,
-        url: imageUrl,
-      })
-    );
+  const addImage = () => {
+    addNewImage({ label: imageLabel, url: imageUrl });
     setImageLabel("");
     setImageUrl("");
     dispatch(displayAddModal(false));

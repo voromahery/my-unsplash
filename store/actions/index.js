@@ -9,10 +9,6 @@ export const displayDeleteModal = () => {
   return { type: "TOGGLE_DELETE_MODAL" };
 };
 
-export const addNewImage = (image) => {
-  return { type: "ADD_IMAGE", image };
-};
-
 export const getImages = () => {
   return async (dispatch) => {
     onSnapshot(collection(db, "images"), (snapshot) => {
