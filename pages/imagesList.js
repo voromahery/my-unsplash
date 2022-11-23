@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, Suspense } from "react";
 import { connect, useSelector } from "react-redux";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import ImageCard from "../components/image/index.js";
@@ -16,7 +16,7 @@ const mapDispatchToProps = {
   getImages,
 };
 
-const ImagesList = ({getImages}) => {
+const ImagesList = ({ getImages }) => {
   const images = useSelector((state) => state.images);
   useEffect(() => {
     getImages();
@@ -34,7 +34,9 @@ const ImagesList = ({getImages}) => {
           />
           {images.length > 0 &&
             images.map((image, i) => (
-              <ImageCard key={i} imgUrl={image?.url} label={image?.label} />
+              <Suspense fallback={<h1>Loading</h1>}>
+                <ImageCard key={i} imgUrl={image?.url} label={image?.label} />
+              </Suspense>
             ))}
         </Masonry>
       </ResponsiveMasonry>

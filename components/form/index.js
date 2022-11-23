@@ -16,6 +16,7 @@ const Form = ({
         placeholder={placeholder}
         className={styles.form}
         value={value}
+        required
       />
     </label>
   );

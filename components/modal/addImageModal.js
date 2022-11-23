@@ -14,10 +14,13 @@ const AddImageModal = () => {
   const dispatch = useDispatch();
 
   const addImage = () => {
-    addNewImage({ label: imageLabel, url: imageUrl });
-    setImageLabel("");
-    setImageUrl("");
-    dispatch(displayAddModal(false));
+    if ((imageLabel, imageUrl)) {
+      addNewImage({ label: imageLabel, url: imageUrl });
+      setImageLabel("");
+      setImageUrl("");
+      dispatch(displayAddModal(false));
+      bodyScrollLock.disable();
+    }
   };
 
   return (
@@ -32,6 +35,7 @@ const AddImageModal = () => {
             action={(e) => setImageLabel(e.target.value)}
           />
           <Form
+            type="url"
             placeholder="https://images.unsplash.com/photo-1584395630827-860eee694d7b?ixlib=r..."
             label="Photo URL"
             value={imageUrl}
