@@ -14,7 +14,9 @@ export const getImages = () => {
     onSnapshot(collection(db, "images"), (snapshot) => {
       dispatch({
         type: "GET_DATA",
-        payload: snapshot.docs.map((doc) => doc.data()),
+        payload: snapshot.docs.map((doc) => {
+          return { ...doc.data(), id: doc.id };
+        }),
       });
     });
   };

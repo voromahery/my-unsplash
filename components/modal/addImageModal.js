@@ -6,16 +6,21 @@ import Button from "../buttons/index";
 import { useDispatch } from "react-redux";
 import { displayAddModal } from "../../store/actions/index";
 import bodyScrollLock from "../../scrollUtils.js";
-import { addNewImage } from "../../firebase";
+import { addNewImage, db } from "../../firebase";
+import { collection, doc } from "firebase/firestore";
 
 const AddImageModal = () => {
   const [imageLabel, setImageLabel] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+  const timestamp = Date.now();
   const dispatch = useDispatch();
 
   const addImage = () => {
     if ((imageLabel, imageUrl)) {
-      addNewImage({ label: imageLabel, url: imageUrl });
+      const usersRef = collection(db, "images"); // collectionRef
+      const userRef = doc(usersRef); // docRef
+      const id = userRef.id;
+      addNewImage({ label: imageLabel, url: imageUrl, timestamp, id });
       setImageLabel("");
       setImageUrl("");
       dispatch(displayAddModal(false));

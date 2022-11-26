@@ -5,9 +5,19 @@ import Button from "../buttons/index";
 import { useDispatch } from "react-redux";
 import bodyScrollLock from "../../scrollUtils.js";
 import { displayDeleteModal } from "../../store/actions";
+import { db } from "../../firebase";
+import { deleteDoc, doc } from "firebase/firestore";
 
-const DeleteModal = () => {
+const DeleteModal = ({ id, setId }) => {
   const dispatch = useDispatch();
+
+  const deleteImage = () => {
+    const imageRef = doc(db, "images", id);
+    deleteDoc(imageRef);
+    dispatch(displayDeleteModal(false));
+    setId("");
+  };
+
   return (
     <ModalWrapper
       title="Are you sure?"
@@ -15,7 +25,7 @@ const DeleteModal = () => {
         <>
           <Form type="password" placeholder="******************" />
           <div className={styles.buttonWrapper}>
-            <Button type="delete" label="Delete" />
+            <Button type="delete" label="Delete" action={deleteImage} />
             <Button
               type="cancel"
               label="Cancel"
