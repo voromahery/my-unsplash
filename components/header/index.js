@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { displayAddModal } from "../../store/actions/index";
 import bodyScrollLock from "../../scrollUtils.js";
 
-const Header = () => {
+const Header = ({ setInputValue }) => {
   const dispatch = useDispatch();
 
   return (
@@ -19,6 +19,7 @@ const Header = () => {
           type="text"
           placeholder="Search by name"
           className={styles.input}
+          onChange={(e) => setInputValue(e.target.value)}
         />
         <Button
           label="Add a photo"

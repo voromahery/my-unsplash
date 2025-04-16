@@ -1,5 +1,5 @@
-import React, { useEffect, Suspense, useState } from "react";
-import { connect, useDispatch, useSelector } from "react-redux";
+import React, { useEffect, Suspense } from "react";
+import { connect, useDispatch } from "react-redux";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import ImageCard from "../components/image/index.js";
 import bodyScrollLock from "../scrollUtils.js";
@@ -16,9 +16,8 @@ const mapDispatchToProps = {
   getImages,
 };
 
-const ImagesList = ({ getImages, setId }) => {
+const ImagesList = ({ getImages, setId, images }) => {
   const dispatch = useDispatch();
-  const images = useSelector((state) => state.images);
 
   useEffect(() => {
     getImages();
@@ -26,7 +25,10 @@ const ImagesList = ({ getImages, setId }) => {
 
   return (
     <div className={styles.imagesWrapper}>
-      <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
+      <ResponsiveMasonry
+        columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}
+        gutterBreakpoints={{ 350: "12px", 750: "16px", 900: "24px" }}
+      >
         <Masonry columnsCount={3} gutter={"46.5px"}>
           {images.length > 0 &&
             images

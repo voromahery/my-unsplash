@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
   images: {
     domains: ["i.pinimg.com"],
     remotePatterns: [
@@ -11,7 +10,6 @@ const nextConfig = {
         port: "",
       },
     ],
-  },
+  }
 };
-
 module.exports = nextConfig;
