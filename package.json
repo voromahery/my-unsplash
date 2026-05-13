@@ -11,7 +11,7 @@
   "dependencies": {
     "dotenv-next": "^0.1.24",
     "firebase": "^11.6.0",
-    "next": "^15.3.0",
+    "next": "^15.5.18",
     "next-redux-wrapper": "^8.0.0",
     "node-sass": "^9.0.0",
     "react": "18.2.0",
