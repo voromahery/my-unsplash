@@ -8,13 +8,14 @@ import ImagesList from "./imagesList";
 
 export default function Home() {
   const [id, setId] = useState("");
+  const [inputValue, setInputValue] = useState("");
   const isShownAddModal = useSelector((state) => state.displayAddModal);
   const isShownDeleteModal = useSelector((state) => state.displayDeleteModal);
 
   return (
     <div className={styles.main}>
-      <Header />
-      <ImagesList setId={setId} />
+      <Header setInputValue={setInputValue} />
+      <ImagesList setId={setId} searchQuery={inputValue} />
       {isShownAddModal && <AddImageModal />}
       {isShownDeleteModal && <DeleteModal id={id} setId={setId} />}
     </div>

@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  transpilePackages: ["react-responsive-masonry"],
   images: {
     domains: ["i.pinimg.com"],
     remotePatterns: [
